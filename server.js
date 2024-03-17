@@ -1,9 +1,11 @@
+const app = express()
 const express = require('express')
-
-// CONFIGURATION
 require('dotenv').config()
 const PORT = process.env.PORT
-const app = express()
+const methodOverride = require('method-override')
+const breadsController = require('./controllers/breads_controller.js')
+
+
 
 // MIDDLEWARE
 app.set('views', __dirname + '/views')
@@ -17,16 +19,11 @@ app.get('*', (req, res) => {
     res.send('404')
 })
 
-// DEPENDENCIES
-const methodOverride = require('method-override')
-
-
-
 app.get('/', (req, res) => {
     res.send('Welcome to an Awesome App about Breads!')
 })
 
-const breadsController = require('./controllers/breads_controller.js')
+
 app.use('/breads', breadsController)
 
 app.listen(PORT, () => {

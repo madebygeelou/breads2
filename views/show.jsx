@@ -6,6 +6,7 @@ function Show ({bread, index}) {
     return (
       <Default>
         <h2>Show Page</h2>
+        <a href={`/breads/${index}/edit`}><button>Edit</button></a>
         <h3>{bread.name}</h3>
         <p>
             and it 
