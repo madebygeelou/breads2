@@ -11,10 +11,14 @@ app.use(express.static('public'))
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.urlencoded({extended: true}))
+app.use(methodOverride('_method'))
 
 app.get('*', (req, res) => {
     res.send('404')
 })
+
+// DEPENDENCIES
+const methodOverride = require('method-override')
 
 
 
