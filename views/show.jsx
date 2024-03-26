@@ -16,11 +16,13 @@ function Show ({bread, index}) {
                 :<span> does NOT </span>
             }
             have gluten.
-        </p>    
+        </p>     
+        <img src={bread.image} alt={bread.name}/> 
+        <p>{bread.getBakedBy()}</p>  
 <form action={`/breads/${index}?_method=DELETE`} method="POST">
   <input type='submit' value="DELETE"/>
 </form>
-        <img src={bread.image} alt={bread.name}/>
+    
         <li><a href="/breads">Go home</a></li>
       </Default>
     )
