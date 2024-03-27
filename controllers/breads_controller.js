@@ -30,6 +30,8 @@ breads.get('/:arrayIndex', (req, res) => {
   
 // INDEX
 breads.get('/', (req, res) => {
+  Baker.find()
+  .then(foundBakers => {
    Bread.find()
    .then(foundBreads=>{
   res.render('index', {
@@ -37,6 +39,7 @@ breads.get('/', (req, res) => {
     title: 'Index Page'
   })
    })
+  })
   })
 
 // NEW
