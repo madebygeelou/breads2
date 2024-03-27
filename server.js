@@ -7,7 +7,6 @@ const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 
 
-
 mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true})
 
 // MIDDLEWARE
@@ -26,6 +25,9 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
  console.log('listening on port', PORT);   
 })
+
+const bakersController = require('./controllers/bakers_controller.js')
+app.use('/bakers', bakersController)
 
 app.get('*', (req, res) => {
     res.send('404')
